@@ -2,7 +2,6 @@ package com.rookied.springboot.controller.admin;
 
 import com.rookied.springboot.entity.User;
 import com.rookied.springboot.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +20,10 @@ public class UserController {
     @RequestMapping("/findAll")
     public List<User> findAll(){
         return userService.findAll();
+    }
+
+    @RequestMapping("/findById")
+    public List<User> findById(Long id){
+        return userService.findById(id);
     }
 }

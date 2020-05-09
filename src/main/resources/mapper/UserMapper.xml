@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.rookied.springboot.mapper.UserMapper">
+    <!--查询所有-->
     <select id="findAll" resultType="com.rookied.springboot.entity.User">
-        select * from tb_user;
+        SELECT * FROM tb_user ;
     </select>
+
+    <!--根据id查询-->
+    <select id="findById" resultType="com.rookied.springboot.entity.User" parameterType="long">
+        SELECT * FROM tb_user WHERE id=#{id};
+    </select>
+
+    <!--插入-->
+    <insert id="create" parameterType="com.rookied.springboot.entity.User">
+        INSERT INTO tb_user(`username`,`password`) VALUES(#{username},#{password});
+    </insert>
+
+    <!--删除-->
+    <delete id="delete" parameterType="long">
+        DELETE FROM tb_user WHERE id=#{id};
+    </delete>
+
+    <!--根据id更新-->
+    <update id="update">
+        UPDATE tb_user SET WHERE 1=1
+        <if test="username != null">
+            `username`=#{username},
+        </if>
+        <if test="password != null">
+            `password`=#{password}
+        </if>
+        WHERE id=#{id};
+    </update>
+
 </mapper>

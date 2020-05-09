@@ -12,4 +12,12 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     List<User> findAll();
+
+    List<User> findById(Long id);
+
+    void create(User t);
+
+    void delete(Long... id);
+
+    void update(Long id);
 }

@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> findById(Long id) {
-        return null;
+        return userMapper.findById(id);
     }
 
     /**
@@ -51,11 +51,13 @@ public class UserServiceImpl implements UserService {
     /**
      * 删除多个
      *
-     * @param id 多个id值
+     * @param ids 多个id值
      */
     @Override
-    public void delete(Long... id) {
-
+    public void delete(Long... ids) {
+        for (Long id : ids) {
+            userMapper.delete(id);
+        }
     }
 
     /**

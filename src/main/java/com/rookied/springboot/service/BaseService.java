@@ -30,7 +30,7 @@ public interface BaseService<T> {
      * 删除多个
      * @param id 多个id值
      */
-    void delete(Long... id);
+    void delete(Long... ids);
 
     /**
      * 更新
