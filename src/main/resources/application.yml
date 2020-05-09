@@ -22,6 +22,6 @@ spring:
       time-between-eviction-runs-millis: 60000
 
   #mybatis配置
-  mybatis:
-    mapper-locations: classpath:mapper/*.xml
-    type-aliases-package: com.rookied.springboot.entity
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.rookied.springboot.entity
