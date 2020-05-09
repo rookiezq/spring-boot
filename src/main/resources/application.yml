@@ -21,6 +21,14 @@ spring:
       #间隔多久进行一次检测，检测需要关闭的空闲连接
       time-between-eviction-runs-millis: 60000
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    cache: false
+
   #mybatis配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
