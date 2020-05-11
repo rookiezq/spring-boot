@@ -2,10 +2,10 @@ package com.rookied.springboot.controller.admin;
 
 import com.rookied.springboot.entity.User;
 import com.rookied.springboot.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ import java.util.List;
  */
 @RestController
 public class UserController {
-    @Resource
+    @Autowired
     private UserService userService;
 
     @RequestMapping("/findAll")

@@ -69,4 +69,9 @@ public class UserServiceImpl implements UserService {
     public void update(Long id) {
 
     }
+
+    @Override
+    public User findByName(String username) {
+        return userMapper.findByName(username);
+    }
 }

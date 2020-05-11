@@ -1,9 +1,14 @@
 package com.rookied.springboot.controller.admin;
 
 import com.rookied.springboot.entity.Result;
-import org.springframework.core.env.Environment;
+import com.rookied.springboot.entity.User;
+import com.rookied.springboot.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 
 /**
  * @author zhangqiang
@@ -11,26 +16,26 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 public class LoginController {
-    final Environment environment;
-
-    public LoginController(Environment environment) {
-        this.environment = environment;
-    }
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/login")
     @ResponseBody
     public Result login(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("username:" + username + ", password:" + password);
-        return new Result(true,"登录成功");
+        User user = userService.findByName(username);
+        if (user != null) {
+            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            //在session中添加user
+            attributes.getRequest().getSession().setAttribute("user",user);
+            return new Result(true, user.getUsername());
+        }
+        return new Result(false, "登录失败");
     }
 
-    @RequestMapping("/blog")
-    public String blog(){
-        return environment.getProperty("url");
-    }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "home/login";
     }
 }

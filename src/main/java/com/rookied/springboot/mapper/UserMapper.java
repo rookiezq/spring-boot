@@ -20,4 +20,7 @@ public interface UserMapper {
     void delete(Long... id);
 
     void update(Long id);
+
+    User findByName(String username);
 }
+

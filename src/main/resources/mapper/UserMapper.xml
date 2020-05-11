@@ -11,6 +11,11 @@
         SELECT * FROM tb_user WHERE id=#{id};
     </select>
 
+    <!--根据用户名查询-->
+    <select id="findByName" resultType="com.rookied.springboot.entity.User" parameterType="string">
+        SELECT * FROM tb_user WHERE username=#{username};
+    </select>
+
     <!--插入-->
     <insert id="create" parameterType="com.rookied.springboot.entity.User">
         INSERT INTO tb_user(`username`,`password`) VALUES(#{username},#{password});
