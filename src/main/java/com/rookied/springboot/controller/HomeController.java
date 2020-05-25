@@ -19,4 +19,9 @@ public class HomeController {
     public String user() {
         return "site/goods";
     }
+
+    @GetMapping(value = {"/", "/users"})
+    public String users() {
+        return "site/users";
+    }
 }

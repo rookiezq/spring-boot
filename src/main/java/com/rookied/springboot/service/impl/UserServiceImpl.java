@@ -3,6 +3,7 @@ package com.rookied.springboot.service.impl;
 import com.rookied.springboot.entity.User;
 import com.rookied.springboot.mapper.UserMapper;
 import com.rookied.springboot.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
     /**
      * 查询所有

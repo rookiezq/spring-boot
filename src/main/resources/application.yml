@@ -33,3 +33,10 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.rookied.springboot.entity
+
+pagehelper:
+  helper-dialect: mysql
+  # 纠错机制 小于0为第一页 大于页数范围为最后一页
+  reasonable: true
+
+  #support-methods-arguments: true

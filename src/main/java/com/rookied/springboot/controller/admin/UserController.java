@@ -26,4 +26,9 @@ public class UserController {
     public List<User> findById(Long id){
         return userService.findById(id);
     }
+
+    @RequestMapping("/addById")
+    public List<User> add(Long id){
+        return userService.findById(id);
+    }
 }

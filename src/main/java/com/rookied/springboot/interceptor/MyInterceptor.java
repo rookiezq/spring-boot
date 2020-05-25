@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 public class MyInterceptor {
 
-    @Pointcut("within(com.rookied.springboot.controller..*) && !within(com.rookied.springboot.controller.admin.LoginController)")
+    /*@Pointcut("within(com.rookied.springboot.controller..*) && !within(com.rookied.springboot.controller.admin.LoginController)")
     public void pointCut() {
     }
 
@@ -35,5 +35,5 @@ public class MyInterceptor {
         }
         System.out.println("-----------用户已登录-----------");
         return joinPoint.proceed();
-    }
+    }*/
 }
